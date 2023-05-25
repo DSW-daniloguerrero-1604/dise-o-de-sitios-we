@@ -1,0 +1,63 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Box Model Quiz</title>
+</head>
+<body>
+	<form id="quiz-form">
+		<h2>Box Model Quiz</h2>
+		<p>1. ¿Cuál es la propiedad CSS que define el tamaño del contenido de un elemento?</p>
+		<label><input type="radio" name="q1" value="a"> width</label><br>
+		<label><input type="radio" name="q1" value="b"> height</label><br>
+		<label><input type="radio" name="q1" value="c"> content-size</label><br><br>
+
+		<p>2. ¿Qué partes componen el box model?</p>
+		<label><input type="radio" name="q2" value="a"> margin, padding, border, content</label><br>
+		<label><input type="radio" name="q2" value="b"> header, footer, main, aside</label><br>
+		<label><input type="radio" name="q2" value="c"> top, right, bottom, left</label><br><br>
+
+		<p>3. ¿Qué propiedad CSS se utiliza para agregar espacio adicional alrededor del contenido de un elemento?</p>
+		<label><input type="radio" name="q3" value="a"> padding</label><br>
+		<label><input type="radio" name="q3" value="b"> margin</label><br>
+		<label><input type="radio" name="q3" value="c"> border</label><br><br>
+
+		<p>4. ¿Cuál es el valor predefinido de la propiedad CSS "box-sizing"?</p>
+		<label><input type="radio" name="q4" value="a"> content-box</label><br>
+		<label><input type="radio" name="q4" value="b"> border-box</label><br>
+		<label><input type="radio" name="q4" value="c"> padding-box</label><br><br>
+
+		<p>5. ¿Cómo se calcula el ancho total de un elemento cuando se utiliza "box-sizing: border-box"?</p>
+		<label><input type="radio" name="q5" value="a"> content width + padding width + border width</label><br>
+		<label><input type="radio" name="q5" value="b"> content width + padding width</label><br>
+		<label><input type="radio" name="q5" value="c"> content width</label><br><br>
+
+		<button type="submit">Submit</button>
+	</form>
+
+	<div id="results"></div>
+
+	<script>
+		const form = document.getElementById("quiz-form");
+    // Respuestas correctas
+		const answers = ["a", "a", "a", "a", "a"];
+
+		form.addEventListener("submit", (event) => {
+			event.preventDefault();
+			let score = 0;
+			const userAnswers = [form.q1.value, form.q2.value, form.q3.value,
+				form.q4.value, form.q5.value];
+
+			userAnswers.forEach((answer, index) => {
+				if (answer === answers[index]) {
+					score += 1;
+				}
+			});
+
+			const results = document.getElementById("results");
+			results.innerHTML = `<h3>You scored ${score} out of 5.</h3>`;
+		});
+	</script>
+</body>
+</html>
+
